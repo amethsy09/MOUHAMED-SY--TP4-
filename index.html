@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Mot de Passe</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+#result {
+    position: relative;
+    display: inline-block;
+}
+
+#password {
+    margin-top: 20px;
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#copyTooltip {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+#result:hover #copyTooltip {
+    visibility: visible;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Générateur de Mot de Passe</h1>
+        <form id="passwordForm">
+            <label for="length">Longueur du mot de passe (15-20) :</label>
+            <input type="number" id="length" name="length" min="15" max="20" value="15">
+
+            <div>
+                <input type="checkbox" id="uppercase" name="criteria" value="uppercase">
+                <label for="uppercase">Lettres Majuscules</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="lowercase" name="criteria" value="lowercase">
+                <label for="lowercase">Lettres Minuscules</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="numbers" name="criteria" value="numbers">
+                <label for="numbers">Les Nombres</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="special" name="criteria" value="special">
+                <label for="special">Caractères spéciaux</label>
+            </div>
+
+            <button type="button" id="generate" disabled>Générer Mot de Passe</button>
+        </form>
+        <div id="result">m
+            <input type="text" id="password" readonly>
+            <span id="copyTooltip">Copier</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
